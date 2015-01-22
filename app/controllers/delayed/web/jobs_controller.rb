@@ -22,7 +22,7 @@ module Delayed
       end
 
       def destroy_all
-        jobs.destroy_all
+        Delayed::Job.destroy_all
         flash[:alert] = t(:alert, scope: 'delayed/web.flashes.jobs.destroyed')
         redirect_to jobs_path
       end
